@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="User Information" icon-name="standard:user">
+        <div class="slds-p-around_medium">
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading..." size="small"></lightning-spinner>
+            </template>
+            <template lwc:elseif={error}>
+                <div class="slds-text-color_error">
+                    {error}
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                        <div class="slds-text-title_caps slds-text-color_weak">Name</div>
+                        <div class="slds-text-heading_small">{userName}</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                        <div class="slds-text-title_caps slds-text-color_weak">Username</div>
+                        <div class="slds-text-heading_small">{userUsername}</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="slds-text-title_caps slds-text-color_weak">Current Date</div>
+                        <div class="slds-text-heading_small">{currentDate}</div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
